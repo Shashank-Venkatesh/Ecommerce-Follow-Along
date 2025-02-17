@@ -1,10 +1,10 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const User = require("../Modal/user");
+const User = require("../model/user");
 const router = express.Router();
 const { upload } = require("../multer");
-const ErrorHandler = require("../utility/ErrorHandler");
+const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncError");
 const sendmail = require("../utils/sendmail")
 const sendtoken = require("../utils/jwtToken")

@@ -18,10 +18,18 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 connectDatabase();
 
 // create server
-// const server = app.listen
-// create server
 const server = app.listen(process.env.PORT, () => {
   console.log(
     `Server is running on http://localhost:${process.env.PORT}`
   );
+});
+
+// unhandled promise rejection(explain error handling when setting up server as you code)
+process.on("unhandledRejection", (err) => {
+  console.error(`Unhandled Rejection: ${err.message}`);
+  console.log("Shutting down the server due to unhandled promise rejection.");
+  
+  server.close(() => {
+    process.exit(1); // Exit with failure code
+  });
 });
