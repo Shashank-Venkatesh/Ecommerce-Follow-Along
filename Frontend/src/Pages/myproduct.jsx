@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import Product from "../Components/product";
+import Product from "../Components/myproduct";
 
 
 export default function MyProducts() {

@@ -1,5 +1,7 @@
 const app = require("./app");
 const connectDatabase = require("./db/Database");
+// const cors = require('cors');
+// app.use(cors({ origin: 'http://localhost:5173' }));
 
 // Handling uncaught Exception when setting up backend server
 process.on("uncaughtException", (err) => {
@@ -8,7 +10,7 @@ process.on("uncaughtException", (err) => {
 });
 
 // config
-if (process.env.NODE_ENV !== "PRODUCTION") {
+if (process.env.DB_URL  !== "PRODUCTION") {
   require("dotenv").config({
     path: "config/.env",
   });
@@ -24,12 +26,13 @@ const server = app.listen(process.env.PORT, () => {
   );
 });
 
-// unhandled promise rejection(explain error handling when setting up server as you code)
-process.on("unhandledRejection", (err) => {
-  console.error(`Unhandled Rejection: ${err.message}`);
-  console.log("Shutting down the server due to unhandled promise rejection.");
-  
-  server.close(() => {
-    process.exit(1); // Exit with failure code
+
+  // unhandled promise rejection(explain error handling when setting up server as you code)
+  process.on("unhandledRejection", (err) => {
+    console.error(`Unhandled Rejection: ${err.message}`);
+    console.log("Shutting down the server due to unhandled promise rejection.");
+    
+    server.close(() => {
+      process.exit(1); // Exit with failure code
+    });
   });
-});
