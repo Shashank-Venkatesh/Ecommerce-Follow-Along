@@ -24,6 +24,7 @@ const CreateAddress = () => {
             zipCode,
             addressType,
             email: "gowrishvarma@gmail.com"
+            email: "akshara@gmail.com"
         };
 
         try {
@@ -126,5 +127,3 @@ const CreateAddress = () => {
         </>
     );
 };
-
-export default CreateAddress;
