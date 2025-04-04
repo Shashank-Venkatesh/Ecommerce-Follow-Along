@@ -1,5 +1,7 @@
- /* eslint-disable no-unused-vars */
-// OrderConfirmation.jsx
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Nav from '../components/nav';
@@ -141,7 +143,7 @@ const OrderConfirmation = () => {
 
             console.log('Orders placed successfully:', response.data);
             // Navigate to success page
-            navigate('/myorders');
+            navigate('/order-success');
         } catch (error) {
             console.error('Error placing order:', error);
         }
@@ -280,18 +282,15 @@ const OrderConfirmation = () => {
                                 <span className='ml-2'>Pay Online (PayPal)</span>
                             </label>
                         </div>
-                     
 
 
                         {paymentMethod === 'paypal' && (
                             <div className='mt-4' style={{ maxWidth: '500px' }}>
                                 <PayPalScriptProvider
                                     options={{
-                                        // own client id
-                                        'client-id': 'AdHKK-jKHcNKqVKAebuwmk1m1m14jNmwJaGX5p7gYQiGbSb8R_AgKr7uBpB_fbQxEhzZz-dXe5nOPem4&currency=USD',
+                                        'client-id': "AbTl5gcW_n-2CrorjnlahqkeEd1pQm6B9DTepUtGVin7XcG0O9t6na298Fw8ooeefg6_0M2wK4Vvx1Pi",
                                     }}
-                                    >
-                                   
+                                >
                                     <PayPalButtons
                                         style={{ layout: 'vertical' }}
                                         createOrder={(data, actions) => {

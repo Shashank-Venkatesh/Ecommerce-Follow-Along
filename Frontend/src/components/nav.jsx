@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
+// src/components/NavBar.jsx
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
+const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -122,6 +123,19 @@ const NavBar = () => {
                                     Profile
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink
+                                    to="/myorders"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                            : "text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                    }
+                                >
+                                    My Orders
+                                </NavLink>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -217,4 +231,4 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+export default Nav;
